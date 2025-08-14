@@ -9,6 +9,27 @@ import WrapButton from '@/components/ui/wrap-button'
 import { Banana, Facebook, Globe, Twitter } from 'lucide-react'
 import React, { use } from 'react'
 
+function Navbar() {
+  return (
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/10 dark:bg-zinc-900/30 backdrop-blur-xl border-b border-white/20 dark:border-zinc-800/60 shadow-2xl shadow-black/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex h-16 items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="text-xl font-bold tracking-tight drop-shadow text-black dark:text-white">Skiper</span>
+        </div>
+        <div className="flex items-center gap-6">
+          <a href="#" className="font-medium transition-colors text-black dark:text-white hover:text-zinc-800 dark:hover:text-zinc-200">Home</a>
+          <a href="#features" className="font-medium transition-colors text-black dark:text-white hover:text-zinc-800 dark:hover:text-zinc-200">Features</a>
+          <a href="#gallery" className="font-medium transition-colors text-black dark:text-white hover:text-zinc-800 dark:hover:text-zinc-200">Gallery</a>
+          <a href="#contact" className="font-medium transition-colors text-black dark:text-white hover:text-zinc-800 dark:hover:text-zinc-200">Contact</a>
+        </div>
+        <div className="flex items-center gap-2">
+          <ThemeToggleButton variant="gif" url="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXhjcThtMGw5OWlzeTAxNnNmMXBlYTFleGE0OG8wNDVvNWFnZ3p6dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/f9dqzrmiw1LzLMk691/giphy.gif"/>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 function page() {
 
     const images = [
@@ -32,6 +53,8 @@ function page() {
 ]
   return (
     <div>
+      <Navbar />
+      <div className="pt-16"> {/* Add padding to offset the fixed navbar */}
       {/* <h1 className='text-white'>Next</h1> */}
       {/* <WrapButton className='mt-20' href='https://soleva.vercel.app/'>
         <Globe className='animate-spin'/>
@@ -42,17 +65,22 @@ function page() {
         Share
       </ShareButton> */}
 
-      <FlipLink href='https://github.com/harshitxarc'>Github</FlipLink>
-      <FlipLink href='https://www.instagram.com/harshit07.__/'>Instagram</FlipLink>
-      <FlipLink href='https://www.instagram.com/harshit07.__/'>Dribble</FlipLink>
-
-      <div className='h-screen'></div>
-      <div className='h-screen border-t-2'>
-        <TextScroll default_velocity={3} text='This Is Harshit' className='text-5xl font-bold'></TextScroll>
-      </div>
-      <div className='h-screen border-t-2'>
+      <div className='h-screen'>
         <CardCarousel images={images} />
       </div>
+      
+      <div className='h-screen border-t-2 flex items-center'>
+        <div>
+          <FlipLink href='https://github.com/harshitxarc'>Github</FlipLink>
+          <FlipLink href='https://www.instagram.com/harshit07.__/'>Instagram</FlipLink>
+          <FlipLink href='https://www.instagram.com/harshit07.__/'>Dribble</FlipLink>
+        </div>
+      </div>
+
+      <div className='h-screen flex items-center'>
+        <TextScroll default_velocity={3} text='This Is Harshit' className='text-3xl font-semibold font-mono'></TextScroll>
+      </div>
+
       <div className="h-screen w-full border-t-2">
         <ImageCursorTrail
           items={images2}
@@ -69,7 +97,8 @@ function page() {
         </ImageCursorTrail>
       </div>
       <div className="h-screen w-full border-t-2 flex items-center justify-center">
-        <ThemeToggleButton/>
+        <ThemeToggleButton variant="gif" url="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXhjcThtMGw5OWlzeTAxNnNmMXBlYTFleGE0OG8wNDVvNWFnZ3p6dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/f9dqzrmiw1LzLMk691/giphy.gif"/>
+      </div>
       </div>
     </div>
   )

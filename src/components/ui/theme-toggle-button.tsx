@@ -26,6 +26,11 @@ export default function ThemeToggleButton({
   url = "",
 }: ThemeToggleAnimationProps) {
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const styleId = "theme-transition-styles"
 
@@ -66,6 +71,11 @@ export default function ThemeToggleButton({
 
     document.startViewTransition(switchTheme)
   }, [theme, setTheme])
+
+  if (!mounted) {
+    // Optionally render a placeholder or nothing
+    return <div className="w-9 h-9" />
+  }
 
   return (
     <Button
