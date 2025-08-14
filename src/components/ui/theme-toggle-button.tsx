@@ -25,7 +25,7 @@ export default function ThemeToggleButton({
   showLabel = false,
   url = "",
 }: ThemeToggleAnimationProps) {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
 
   const styleId = "theme-transition-styles"
 
@@ -56,7 +56,7 @@ export default function ThemeToggleButton({
     if (typeof window === "undefined") return
 
     const switchTheme = () => {
-      setTheme(theme === "light" ? "dark" : "light")
+      setTheme(resolvedTheme === "light" ? "dark" : "light")
     }
 
     if (!document.startViewTransition) {
@@ -75,8 +75,11 @@ export default function ThemeToggleButton({
       className="w-9 p-0 h-9 relative group"
       name="Theme Toggle Button"
     >
-      <SunIcon className="size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <MoonIcon className="absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      {resolvedTheme === "dark" ? (
+        <MoonIcon className="size-[1.2rem] transition-all" />
+      ) : (
+        <SunIcon className="size-[1.2rem] transition-all" />
+      )}
       <span className="sr-only">Theme Toggle </span>
       {showLabel && (
         <>

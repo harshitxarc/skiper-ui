@@ -4,6 +4,7 @@ import ImageCursorTrail from '@/components/ui/image-cursortrail'
 import ShareButton from '@/components/ui/share-button'
 import FlipLink from '@/components/ui/text-effect-flipper'
 import { TextScroll } from '@/components/ui/text-scroll'
+import ThemeToggleButton from '@/components/ui/theme-toggle-button'
 import WrapButton from '@/components/ui/wrap-button'
 import { Banana, Facebook, Globe, Twitter } from 'lucide-react'
 import React, { use } from 'react'
@@ -66,6 +67,9 @@ function page() {
             </h1>
           </article>
         </ImageCursorTrail>
+      </div>
+      <div className="h-screen w-full border-t-2 flex items-center justify-center">
+        <ThemeToggleButton/>
       </div>
     </div>
   )
